@@ -1,0 +1,54 @@
+*. TestNG : It is an Testing Framework designed to simplify the Unit testing to Integration Testing . TestNG provides you full control over the test cases and the execution of the test cases. Due to this reason, TestNG is also known as a testing framework.
+   Syntax : @Test , @BeforeTest etc.
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">  
+<suite name="test_suite">  
+<test name="TimeOut Program">  
+<classes>  
+<class name="com.javatpoint.Timeout_program"/>  
+</classes>  
+</test> <!-- Test -->  
+</suite> <!-- Suite --> 
+
+
+
+*. TestNG Groups : TestNG Groups allow you to perform groupings of different test methods. Grouping of test methods is required when you want to access the test methods of different classes.
+
+*. Annotations : TestNG Annotation is a piece of code which is inserted inside a program or business logic used to control the flow of execution of test methods.
+- @Test : eg - @Test(enabled = False) : 
+- @BeforeSuite : Executed before all the test methods are executed.
+- @AfterSuite : Executed after all the test methods are executed successfully.
+- @BeforeClass
+- @AfterClass
+- @BeforeMethod
+- @AfterMethod
+- While writing the test cases in the TestNG, you need to mention the @Test annotation before the test method.
+- Annotation Attributes : enabled , dependsOnMethods , Priority , 
+
+*. TestNG Paramerter : 
+- @Parameters({"a","b"}) : 
+
+*. TestNG Listeners : TestNG provides the @Listeners annotation which listens to every event that occurs in a selenium code
+- @Listeners
+- onTestStart():
+- onTestSuccess():
+- onTestFailure():
+- onTestSkipped():
+
+*. TestNG Advantages :
+- It generates the report in a proper format, which includes the following information:
+Number of test cases executed.
+Number of test cases passed.
+Number of test cases failed.
+Number of test cases skipped
+- Multiple test cases can be grouped easily by converting them into a testng.xml file, in which you can set the priority of each test case that determines which test case should be executed first.
+- With the help of TestNG, you can execute the multiple test cases on multiple browsers known as cross-browser testing.
+- The TestNG framework can be easily integrated with other tools such as Maven. Jenkins, etc.
+- Annotations used in a TestNG framework are easily understandable such as @BeforeMethod, @AfterMethod, @BeforeTest, @AfterTest.
+- WebDriver does not generate the reports while TestNG generates the reports in a readable format.
+
+*. How to handle flaky test : using IRetryAnalyzer interface 
+
+*. Using ITestListeners inteface we can achive the test pass or failure in TestNG 
+
+

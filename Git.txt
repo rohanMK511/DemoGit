@@ -1,0 +1,13 @@
+1. Git : Git is an open Source free Version control tool.
+2. Commands used to configure the Git to GitHub
+   Tell it who you are - git config --global user.name "rohanMK"
+                    - git config --global user-email "rohankhot511@gmail.com"  
+3. In CMD change the directory to your local project location
+4. Initialize git file : git init
+5. Add the File to GITHUB : git add <filename> or *(use * to add all the files)
+6. Check the status of the staging : git status
+7. To commit use : git commit -m "first commit"
+8. Connect to the Remote repository : git remote add origin <https://github.com/rohanMK511/DemoGit.git>
+9. Push to GITHUB : git push origin master
+
+

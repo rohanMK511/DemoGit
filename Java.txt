@@ -1,0 +1,150 @@
+Java Interface: is a Group of related methods with empty bodies.
+
+Java Abstraction: Is a process of hiding the implementation details from the user and only the functionality will be provided to the user.
+
+Abstract Class : Is a class where in the Implementation methods and Un-Implementation methods present in a class .
+
+Inheritance : Is a method where if a user wants to inherit the Properties of the Parent class in to the Child class we use Extends keyword to inheritance 
+
+Function Overloading : In the same class if we have multiple methods with the same name but arguments with different data type or argument count should be different then we say it as Function Overloading
+
+Function Overriding : If we have multiple methods with same name , same arguments , same data type and arguments counts are also same we say it as Function overriding .
+
+Array : It is a container which stores multiple values of same data type
+
+Constructor : It is a kind of method which has the same name as the class , It will not have any return type , when an Object is created  constructor is created automatically. If you don't define any constructor , Implicitly the Complier will call the default constructor 
+
+Super : Super Keyword is used to declare the variable or the methods present in the parent class .
+
+Public ,Private ,Default and Protected : When we declare any Variable / Class as Public then it can be used across all the Classes / Packages . When we declare any Variable / Class as Private then it can be utilized only in the mentioned class . When you declare a  Variable / Class as Protected then it can utilized in the subclasses and in the same package . If you don't specify any acccess modifiers then it is considered as default and when an Variable / Class is declared as default then it is utilized only in the same package
+
+Final : Is a keyword , when we use this for any class or variable then it can not be modified by any other ways.
+
+Finally : Is a keyword , when a try catch block is executed irrespective of the result finally block will be executed in java.
+
+Exceptions : It is an event occured unexpectedly whenever we are running any code in java , we use the Try Catch block to capture the exception in java and also we can specify the exact exception which needs to be captured using catch block .
+
+Java Collections Framework : Collections of Intefaces and classes which helps in processing data efficiently
+List : ArrayList, LinkedList, Vector
+Set : Hashset, LinkedHashSet, TreeSet
+Map : Hashmap, TreeMap, LinkedHashMap
+
+Array List : It is a class in list interface , which is an resizable array , found in java.util package
+All the ArrayList can accept the Duplicate values , as in you can add the values etc , Elements store in sequential order .
+Syntax : ArrayList<data Type> list = new ArrayList<data Type>();
+	 list.add("rohan");
+
+HashSet: HashSet implements the Set Interface, It is a collection of items , is also found in java.util package
+Does not accept duplicate values , No gurentee that elements stores in sequential order
+Syntax : HashSet<Data Type> set = new hashSet<dataType>();
+	 set.add("rohan");
+
+Iterator : An Iterator is an object that can be used to loop through collections , like ArrayList and HashSet
+
+HashMap Vs HashTable : HashMap is non Synchronized And not Thread safe , HashTable is Thread safe and Synchronized .
+		       HashMap allows one null key and any no of null values , HashTable does not allow null keys and null values.
+		       HashMap object values are iterated using Iterator , HashTable uses enumerator to iterate the values of HashTabble object
+
+What are the core concepts of OOPS?
+OOPS core concepts are;
+Abstraction
+Encapsulation
+Polymorphism
+Inheritance
+Composition
+Association
+Aggregation
+
+What is Abstraction?
+Abstraction is an OOPS concept to construct the structure of the real world objects. During this construction only the general states and behaviors are taken and more specific states and behaviors are left aside for the implementers.
+
+What is Encapsulation?
+Encapsulation is an OOPS concept to create and define the permissions and restrictions of an object and its member variables and methods. A very simple example to explain the concept is to make the member variables of a class private and providing public getter and setter methods. Java provides four types of access level modifiers: public, protected, no modifier and private.
+
+What is the difference between Abstraction and Encapsulation?
+“Program to interfaces, not implementations” is the principle for Abstraction and “Encapsulate what varies” is the OO principle for Encapsulation.
+Abstraction provides a general structure of a class and leaves the details for the implementers. Encapsulation is to create and define the permissions and restrictions of an object and its member variables and methods.
+Abstraction is implemented in Java using interface and abstract class while Encapsulation is implemented using four types of access level modifiers: public, protected, no modifier and private.
+
+What is Polymorphism?
+Polymorphism is the occurrence of something in various forms. Java supports various forms of polymorphism like polymorphic reference variables, polymorphic method, polymorphic return types and polymorphic argument types.
+
+What is Inheritance?
+A subclass can inherit the states and behaviors of it’s super class is known as inheritance.
+
+What is multiple inheritance?
+A child class inheriting states and behaviors from multiple parent classes is known as multiple inheritance.
+
+What is the diamond problem in inheritance?
+In case of multiple inheritance, suppose class A has two subclasses B and C, and a class D has two super classes B and C.If a method present in A is overridden by both B and C but not by D then from which class D will inherit that method B or C? This problem is known as diamond problem.
+
+Why Java does not support multiple inheritance?
+Java was designed to be a simple language and multiple inheritance introduces complexities like diamond problem. Inheriting states or behaviors from two different type of classes is a case which in reality very rare and it can be achieved easily through an object association.
+
+What is Static Binding and Dynamic Binding?
+Static or early binding is resolved at compile time. Method overloading is an example of static binding.
+Dynamic or late or virtual binding is resolved at run time. Method overriding is an example of dynamic binding.
+
+What is a Class?
+A class is the specification or template of an object.
+
+What is an Object?
+Object is instance of class.
+
+What is Runtime Polymorphism?
+Runtime polymorphism or dynamic method dispatch is a process in which a call to an overridden method is resolved at runtime rather than at compile-time.
+In this process, an overridden method is called through the reference variable of a super class. The 
+
+What is the difference between abstraction and encapsulation?
+Abstraction hides the implementation details whereas encapsulation wraps code and data into a single unit.
+
+What is abstract class?
+A class that is declared as abstract is known as abstract class. It needs to be extended and its method implemented. It cannot be instantiated.
+
+Can there be any abstract method without abstract class?
+No, if there is any abstract method in a class, that class must be abstract.
+
+Can you use abstract and final both with a method?
+No, because abstract method needs to be overridden whereas you can't override final method.
+
+Is it possible to instantiate the abstract class?
+No, abstract class can never be instantiated.
+
+What is interface?
+Interface is a blueprint of a class that have static constants and abstract methods.It can be used to achieve fully abstraction and multiple inheritance.
+
+Can you declare an interface method static?
+No, because methods of an interface is abstract by default, and static and abstract keywords can't be used together.
+
+Can an Interface be final?
+No, because its implementation is provided by another class.
+
+What is marker interface?
+An interface that have no data member and method is known as a marker interface.For example Serializable, Cloneable etc.
+
+What is difference between abstract class and interface?
+Abstract class	Interface
+1)An abstract class can have method body (non-abstract methods).	Interface have only abstract methods.
+2)An abstract class can have instance variables.	An interface cannot have instance variables.
+3)An abstract class can have constructor.	Interface cannot have constructor.
+4)An abstract class can have static methods.	Interface cannot have static methods.
+5)You can extends one abstract class.	You can implement multiple interfaces.
+
+Can we define private and protected modifiers for variables in interfaces?
+No, they are implicitly public.
+
+When can an object reference be cast to an interface reference?
+An object reference can be cast to an interface reference when the object implements the referenced interface.
+
+*. Difference between Int and Integer : 
+
+
+
+
+
+
+*. VVIMP : Java Streams : 
+
+
+
+

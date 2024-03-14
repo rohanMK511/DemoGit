@@ -1,0 +1,61 @@
+1. What is the design pattern you used in writting the framework?
+- We used page object model ,Ours is the mix of page object model and Page Factory , main desing is of POM . and we use Page Factory to create objects/Locators . Instead of creating the Objects of the classes in the test we are writting them in the Action methods , it means if you go to the next page from the login application method then the last stepof the method gives the object of the next page class.
+
+2. How are reusable utilities ae handled in your framework ?
+- For selenium related methods , we are making sure that we have one class called AbstractComponenet where we are writting all reusable methods such as WaitForElementToAppear ,WaitForElementsToDisappear etc . And we are inheriting reusable methods into our page object class. And we use another class called BaseTest for the test related methods and all the test cases will inherit the BaseTest . So that means we have 2 type of reusability classes . one is core selenium class called AbstractComponents class and another one test utility class is the BaseTest class .
+
+3. Where do you use Inheritance concept in your framework ?
+- Inheritance is the one of the OOPS concept and in our project we use the Inheritance concept while we hadle the Re-Usable classes because we don't want to create the objet of every reusable classes in our test , so we are simply inheritng them to our child classes 
+Eg : Asume We have a test called login page , firstly you have to launch the browser , login to the application and finally close the browser , but you don't have to write these methods everytime in your test so you have to use the annotaions in the parent class and using those anotation such as BeforeTest and AfterTest , you can achive the inheritance without calling the methods again and again in your test using inheritance concept.
+
+4. How do you drive the data from external files in your framework ?
+- we use JSON files to parse the data . so based upon how many data we created in the JSON file , our test will run for that many times . 
+  We have dataproviders in TestNG, using that we can parameterize our test data .
+  DataProvider also accept the HashMap as an object to send the data . 
+  So i have created one JSON file and return one utility to convert my JSON file into HashMap , once that is converted i am passing the HashMap object to my data provider.
+- How do you convert JSON to HashMap : 
+  There is a dependency called Jackson DataBind , there are calsses like ObjectMapper which will convert the JSON String content into list of HashMap objects 
+
+5. Do you use interface in your Framework and what is the scope of it?
+- Yes we are using interfaces in our Framework such as ITestListners . IRetryAnalyzer and WebDriver which is an TestNG listner. it provide methods which are helpful for us to write some code where we can avoide writing in our test cases 
+Eg : For every test we have to create one report , so we use the onTestStart i will write the code to start loggin in the report and similarly in test failure also we have to right code in the onTestFailure to show in the report that the test is failed and so on 
+  And if i have to take a screenshot on test failure then it is possible only using the testNG listeners class
+
+6. How are you achieveing the Encapsulation in your framework ?
+- Hiding the implementation details of your class from another class , Showing only the action methods by marking them as public .
+  Explain more on this by giving example of the framework whcih you have worked on
+
+7. Does your framework supports Parellel Excution ?
+- yes , We are using TestNG xml file and are making the attribute parelles is set to value as tests .
+  But we might face issues while generating reports , where in we have faced that the reports got generated randomly and gave output of one test to another test , So to avoid that we use the ThreadLocal class where it stores the thread information as a thread ID , SO like that we avoide the Concurrency issue and implement the thread safe reports 
+
+8. Do you have static keyword in the framework ? where did you use static keywork ?
+- 
+
+9. How are you sending global properties to your test at run time ?
+- We are creating Java Properties file and reading this properties in our base test with properties class . There is a Properties calss which has ability to read any file which has .properties extention 
+- What are the different variable where you can declare globally ?
+  About which browser you want ot execute , you can set timeouts in the properties file
+- We can drive the global properties from maven terminals 
+
+10. What is the mechanism you use to run only selected set of test cases ?
+- We can achieve that using the TestNG Groups concept , First take all the test cases which needs to be executed under a group and creat on separate xml file and give the group name which needs to be executed and when yu run the xml file , only those test cases will be run which are marekd under a specific group .
+- Also we can run the tests which are grouped together from pom profiles section by creating an unique ID and run the ID using MVN command like mvn test -P nameOfTheID which need to be executed .
+
+11. How are you handling flaky tests ?
+- Flaky tests are the test which mught get failed randomly and may pass in the second attempt 
+- Using the IRetryAnalyzer interface we can handle the flaky tests , In this we create one method and we iterate the test case until it return true value .
+
+12. Does your framework Takes Screenshot on test failure ?
+- yes , using testNG listners class and we have a method called onTestFailure and we handle the screenshot in there .
+
+
+
+ 
+
+
+
+
+
+
+

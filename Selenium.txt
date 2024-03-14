@@ -1,0 +1,133 @@
+*. Webdriver driver = new ChromeDriver();
+- WebDriver is an interface which provides set of Browser Automation methods with empty bodies(Abstract methods), ChromeDriver is a Class which implements the WebDriver interface and provide their own implementation to the WebDriver methods.
+
+*. Interface : Interface is a group of related methods with empty bodies. It is the class responsibility to implement the methods declared in the body
+
+*. Locators
+- ID , Name , ClassName , XPath , CSS Selector , Link Text etc
+- We need to construct the locator using the HTML tags in Xpath and Css selector , but other thatn these 2 every other locator will have the straight forward locators.
+- CSS (Cascading Style Sheets) Selectors in Selenium are used to identify and locate web elements based on their id, class, name, attributes and other attributes. CSS is a preferred locator strategy as it is simpler to write and faster as compared to XPath.
+- CSS Selector Syntax : By.cssSelector(tagname#IDValue)
+			By.cssSelector(#IDValue)
+			By.cssSelector(tagname.classValue)
+			By.cssSelector(.classValue)
+			By.cssSelecotr(tagname[attribute='value'])
+- LinkText : If the tagname is a or anchor tag then only it will be feasible to use the linktext
+- Linktext Syntax : By.linkText("hrefValue")
+- XPath in Selenium it a technique to navigate through the HTML structure of a webpage . In XPath we can locate the web element using only tagname without any attributes.
+- XPath Syntax : By.Xpath(//tagname[@Attribute='value'])
+- Relative Xpath : The web element is defined in the middle of the selected element.
+- Absolute Xpath : Starts from the root of the page .
+- If you want to provide the partial attribute value in CSS selector then use the * symbol after the tagname and if you want to provide the partial attribute value in XPath then use the contains keyword .
+   Syntax : CssSelector : tagname[id*='valueOfID']
+   Syntax : XPath : //tagname[contains(@id,'valueOfID')]
+- Siblings with xpath traverse(Parent to child traverse) : If you have to traverse btw the multiple values then you have to use the following-sibling:: syntax in the xpath
+  Syntax : "//tagname/tagname2/tagname3[indexValue]/following-sibling::button[1]"
+- Siblings with xpath traverse(Child to Parent traverse) : If you want to traverse from parent tag to child tag simply use the parent::ChildTagname syntax in the xpath
+  Syntax : "//tagname/tagname2/tagname3[indexValue]/parent::div/button[2]"
+
+*. Assertion/Assert : Assertions are the validation or checkpoints for an application . In selenium validating the automated test cases using Assert will help tester to verify whether the tests have Passed or Failed.
+- Syntax : Assert.assertEquals(ExpecterResult , ActualResult);
+- HardAssert : In which test execution will aborted if the test does not meet the assert condition. In case of assertion error it will throw AssertionError exception.
+- SoftAssert : In Which test execution will not abort if the test does not meet the assert condition. in case of an error it will throw all the exception at assertAll() method . we have to create an object of SoftAssert to access the methods in it.
+
+*. navigate() method : When you use the navigate method usually it happens in E2E testing and here we use navigate to do the back and forth function of the webpage.
+
+*. Select methods : All the select dropdows are static. Select class will be used in this case .
+   syntax : create an object for select class to invoke the methods in select class
+ 	    WebElement webelement = driver.findelement(By.Xpath("Provide the Xpath here"));
+            Select select = new Select(webelement);
+            select.selectByIndex(2);
+
+*. Dynamic DropDown : In this case we have to rap the xpath and provide the indexes of the element.
+   Syntax : driver.findelement(By.xpath("(//contains(@id='someValue'))[2]")).click;
+
+*. Alerts : Alert in Selenium is a message/notification box that notifies the user about some information or asks for permission to perform a certain kind of operation
+   Syntax : driver.switchTo().alert().accept(); / driver.switchTo().alert().dismiss(); etc
+
+*. Synchronization : It is a mechanism which involves more than one task to perform parellel with each other.
+- Implicit wait : In Selelnium it is used to tell the WebDriver to wait for certain amount of time before thowing exception. If we have given about 5 second of Implicit wait to the WebDriver , if the webElement is located at 2 seconds then it will not wait for whole 5 seconds , it will execute the code at 2 seconds and continue for other line of codes. Implicit wait will be applied global will be applied to all the elements in the code.
+  Syntax : driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+- Explicit wait : In Selenium it is used to tell the WebDriver to wait until a certain condition occurs before proceeding with executing the code.Explicit wait is used in cases if the browser naturally takes more time to load .
+  Syntax : WebDriverWait wait = new WebDriverWait(driver,5)
+           wait.until(ExpectedCondition.visibilityOfElementLocated(By.xpath("//div[contains(text(),'COMPOSE')]")));
+- Fluent wait : Fluent Wait finds the web element repeatedly at regular intervals of time until timeout or till the object gets found .
+- Thread.sleep - It is part of jave not Selenium , But it will wait for certain amount of time before proceeding with the next line of code .
+
+*. Actions Class : Actions class is an ability provided by Selenium for handling keyboard and mouse events . doubleClick() , contextClick()=Right-Click the mouse , clickAndHold() etc methods we can perform using actions class .
+   Syntax : Actions action = new Actions(driver);
+            action.moveToElement(element).click().perform();
+
+*. Scroll down : Using JavaScriptExecutor .
+
+*. Links in a Page : All the Links in the page will have anchor tagname "a" .
+
+*. Limitting Webdriver Scope : 
+
+*. StaleElement Error : When we tried to click on the webelement and that webelement is hidden from another link or page at that time we will get StaleElement error 
+
+*. Window Handles : It is a unique identifier that holds the address of all the windows. get.windowhandle(): This method helps to get the window handle of the current window and get.windowhandles(): This method helps to get the handles of all the windows opened .
+   Syntax : driver.get("website");
+	    Set<String> windows = driver.getWindowHandles();
+            Iterator<String> IT = windows.iterator();
+	    String parent = IT.next();
+	    String child = IT.next();
+	    driver.switchTo().window(child);
+
+*. Take Screenshot : File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		     FileUtils.copyFile(screenshot,new File("D:\\Downloads\\screenshot.png"));
+
+*. POM - Page Object Model : 
+
+*. Page Factory : 
+
+*. Data Driven Framework : A Data Driven Framework in Selenium is a technique of separating the “data set” from the actual “test case” (code). Since the test case is separated from the data set, one can easily modify the test case of a particular functionality without making changes to the code.
+
+*. Keyword Driven Framework : A Keyword Driven Framework has all operations and instructions in an external Excel file
+The automation script will read the instructions or test input data from the Excel sheet
+The input data is entered in the application under test
+The test cases are performed and results are returned
+The test output data is stored in the Excel sheet
+
+*. Hybrid Framework : Combination of Data Driven and Keyword Driven framwork.
+
+*. Handle Excel sheet:
+   Syntax : XSSFWorkbook wb = new XSSFWorkbook(FileInputStream("D:\\DemoFile.xlsx"));
+            XSSFSheet sheet = wb.getSheetAt(0);
+	    Row row = sheet.getRow(0);
+	    Cell cell = row.getCell(0);
+	    System.out.println(sheet.getRow(0).getCell(0));
+
+*. Challenges faced in Selenium Automation : Network Connections issue , Captha and OTP Handling , Cross Browser Testing , Pop Ups and Alerts Handling , Testing of Mobile Application , Windows Applications , Handling Dynamic elements .
+
+*. Dynamic WebElement : Using the Explicit wait we can handle the Dynamic elements in the browser . Example : If there is a login button in a Login page , it is disabled until you have enter the Username and Password .
+- Handling the Elements inside the Frames .
+
+*. How do you commit the code to Git Repo : 
+
+*. Reporting : Using Aventstack:Extent report or the Build-in TestNG HTML reporting class.
+
+*. How to Select Value from DropDown : Using the selectByIndex(), selectByValue(), selectByVisibleText();
+
+*. How to get the links present in a page : Using findElements(); , Put in a List variable links and use the links.size(); to get the count of the links present in a page.
+
+*. Find out how many textboxes are there in a page : The type will be Text , first use findelements and keep in a list object and then using object and size method we can get how many text boxes are in a page.
+
+*. Find out how many Links are there in a page : Program is in Eclipse.
+*. Print values in all the textboxes in a page : Program is completed in Eclipse .
+*. Print all the links present in the page : Program is in Eclipse.
+*. Print all the links present only in the footer section on the page : Program is in Eclipse.
+*. Print title of all the child links : Program is in Eclipse.
+*. Open links in separete tab : Program is in Eclipse.
+
+*. Convert a string to Integer : Integer.parseInt(StringValue);
+
+*. SSL certificates : ChromeOptions Class : 
+
+*. How to handle Broken Links : HttpURLConnection and Java class openConnection();
+
+
+
+
+
+
